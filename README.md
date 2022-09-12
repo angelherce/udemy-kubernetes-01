@@ -9,7 +9,7 @@
 - [x] **Sección 1:** _Introducción_
 - [x] **Sección 2:** _Arquitectura de Kubernetes - ¡Conoce todos los secretos!_
 - [x] **Sección 3:** _Instalación de Minikube - ¡Un cluster local, poderoso y muy fácil de usar !_
-- [ ] **Sección 4:** _Pods en Kubernetes VS Contenedores de Docker_
+- [x] **Sección 4:** _Pods en Kubernetes VS Contenedores de Docker_
 - [ ] **Sección 5:** _Exporando Pods - Domina los objetos más pequeños en Kubernetes_
 - [ ] **Sección 6:** _ReplicaSets - Aprende a garantizar réplicas en tus Pods_
 - [ ] **Sección 7:** _Deployments - ¡Aprende a hacer Rollouts & Roolbacks como un Pro!_
