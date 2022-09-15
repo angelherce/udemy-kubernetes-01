@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest
+spec:
+  containers:
+    - name: cont1
+      image: python:3.6-alpine
+      command: ['sh', '-c', 'echo "<h1>Hi World from Container 1 !</h1>" > index.html && python -m http.server 8081']
+      
+    - name: cont2
+      image: python:3.6-alpine
+      command: ['sh', '-c', 'echo "<h1>Hi World from Container 2 !</h1>" > index.html && python -m http.server 8082']
+      
