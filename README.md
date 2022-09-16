@@ -11,7 +11,7 @@
 - [x] **Sección 3:** _Instalación de Minikube - ¡Un cluster local, poderoso y muy fácil de usar !_
 - [x] **Sección 4:** _Pods en Kubernetes VS Contenedores de Docker_
 - [x] **Sección 5:** _Explorando Pods - Domina los objetos más pequeños en Kubernetes_
-- [ ] **Sección 6:** _ReplicaSets - Aprende a garantizar réplicas en tus Pods_
+- [x] **Sección 6:** _ReplicaSets - Aprende a garantizar réplicas en tus Pods_
 - [ ] **Sección 7:** _Deployments - ¡Aprende a hacer Rollouts & Roolbacks como un Pro!_
 - [ ] **Sección 8:** _Service & Endpoints - Kubernetes Service Discovery_
 - [ ] **Sección 9:** _Golang, JavaSCript y Kubernetes - Aprende a construir aplicaciones reales_
