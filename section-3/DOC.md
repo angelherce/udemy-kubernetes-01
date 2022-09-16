@@ -22,7 +22,26 @@
     ```
 
 
-3. Instalar Docker Compose [[DOC]](https://docs.docker.com/compose/install/)
+3. Instalar Docker Compose
+    - Plugin [[DOC]](https://docs.docker.com/compose/install/)
+    - docker-compose
+        1. El siguiente comando descargará la versión `1.29.2` y guardará el archivo ejecutable en `/usr/local/bin/docker-compose`, lo que hará que este software sea accesible globalmente como `docker-compose`.
+
+        ```bash
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        ```
+
+        2. Establecer los permisos correctos para que el comando `docker-compose` sea ejecutable.
+
+        ```bash
+        sudo chmod +x /usr/local/bin/docker-compose
+        ```
+
+        3. Comprobamos que se ha instalado correctamente ejecutando el siguiente comando:
+
+        ```bash
+        docker-compose --version
+        ```
 
 4. Instalar Kubectl [[DOC]](https://kubernetes.io/docs/tasks/tools/)
 
