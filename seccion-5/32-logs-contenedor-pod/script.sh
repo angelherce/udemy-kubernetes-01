@@ -1,1 +1,1 @@
-kubectl exec -it podtest -- sh
+kubectl logs podtest -f
