@@ -1,0 +1,121 @@
+> _**Sección 7:** Deployments - ¡Aprende a hacer Rollouts & Roolbacks como un Pro!_
+
+# Video 50 - Roll Back - Si algo salió mal, ¡regresa a la versión anterior!
+
+Crearemos un fichero `YAML` especificando el Deployment que queremos crear.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: deployment-test
+   labels:
+      app: frontend
+spec:
+   revisionHistoryLimit: 5
+   replicas: 5
+   selector:
+      matchLabels:
+         app: frontend
+   template:
+      metadata:
+         labels:
+            app: frontend
+      spec:
+         containers:
+            - name: nginx
+              # image: nginx:stable-alpine
+              image:  image:fake
+              ports:
+                 - containerPort: 80
+```
+
+Para crear este recurso utilizaremos el siguiente comando:
+
+```bash
+kubectl apply -f <YAML_FILE_PATH>
+```
+
+Para listar los deploymens utilizaremos el siguiente comando:
+
+```bash
+kubectl get deployment
+```
+
+Si se quiere observar las etiquetas en el listado utilizaremos el flag `--show-labels`:
+
+```bash
+kubectl get deployment --show-labels
+```
+
+Para observar el estado del deployment utilizaremos el siguiente comando:
+
+```bash
+kubectl rollout status deployment <DEPLOYMENT_NAME>
+```
+
+Observar el historico y las revisiones de los despliegues:
+
+```bash
+kubectl rollout history deployment <DEPLOYMENT_NAME>
+```
+
+Observar una revisión del histórico
+
+```bash
+kubectl rollout history deployment <DEPLOYMENT_NAME> --revision=<REVISION_NUMBER>
+```
+
+Establecer un mensaje en el apartado "CHANGE-CAUSE" del histórico:
+
+1. Utilizar el flag `--record`. Esto guardará automáticamente el comando que se ha utilizado.
+    
+    ```shell
+    kubectl apply -f <YAML_FILE_PATH>  --record
+    ```
+
+2. Establecer en el fichero YAML la anotación:
+    
+    ```yaml
+    metadata:
+      annotations:
+        kubernetes.io/change-cause: "Mensaje con los cambios del Deployment"
+    ```
+   
+    ```shell
+    kubectl apply -f <YAML_FILE_PATH>
+    ```
+   
+3. Establecer la anotación anterion a través de comandos:
+
+    ```shell
+    kubectl apply -f <YAML_FILE_PATH>
+    ```
+
+    ```yaml
+    kubectl annotate deployment <DEPLOYMENT_NAME> kubernetes.io/change-cause='Mensaje con los cambios del Deployment'
+    ```
+
+Hacer un Roll Back a otra revisión del histórico:
+
+```shell
+kubectl rollout undo deployment <DEPLOYMENT_NAME> --to-revision=<REVISION_NUMBER>
+```
+
+Ver la información de un Deployment:
+
+```bash
+kubectl describe deployment <DEPLOYMENT_NAME>
+```
+
+Ver el manifiesto de un Deployment:
+
+```bash
+kubectl get deployment <DEPLOYMENT_NAME> -o yaml
+```
+
+Para eliminar el deployment:
+
+```bash
+kubectl delete -f <YAML_FILE_PATH>
+```
