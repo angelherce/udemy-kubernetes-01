@@ -30,42 +30,42 @@ spec:
 
 Para crear este recurso utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Para listar los deploymens utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl get deployment
 ```
 
 Si se quiere observar las etiquetas en el listado utilizaremos el flag `--show-labels`:
 
-```bash
+```shell
 kubectl get deployment --show-labels
 ```
 
 Para observar el estado del deployment utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl rollout status deployment <DEPLOYMENT_NAME>
 ```
 
 Ver la información de un Deployment:
 
-```bash
+```shell
 kubectl describe deployment <DEPLOYMENT_NAME>
 ```
 
 Ver el manifiesto de un Deployment:
 
-```bash
+```shell
 kubectl get deployment <DEPLOYMENT_NAME> -o yaml
 ```
 
 Para eliminar el deployment:
 
-```bash
+```shell
 kubectl delete -f <YAML_FILE_PATH>
 ```

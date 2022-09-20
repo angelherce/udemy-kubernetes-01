@@ -32,13 +32,13 @@ spec:
 
 Ahora para crear los recursos especificados en el fichero YAML, utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Obtener la IP del Pod a través del siguiente comando
 
-```bash
+```shell
 kubectl describe pod <POD_NAME> | grep IP
 ```
 
@@ -46,12 +46,12 @@ Si no tenemos visibilidad desde nuestra máquina al Pod a través de la IP de é
 
 Podremos solucionar esto utilizando el siguiente comando:
 
-```bash
+```shell
 kubectl port-forward <POD_NAME> <PORT_LOCALHOST>:<PORT_POD>
 ```
 
 Finalmente, para eliminar los recursos especificados en el fichero YAML, utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl delete -f <YAML_FILE_PATH>
 ```

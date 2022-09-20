@@ -45,70 +45,70 @@ spec:
 
 Para crear este recurso utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Para listar los servicios utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl get service
 ```
 
-```bash
+```shell
 kubectl get svc
 ```
 
 Si queremos filtrar por etiquetas el listado de los servicios utilizaremos el flag `-l`:
 
-```bash
+```shell
 kubectl get service -l <LABEL_NAME>=<LABEL_VALUE>
 ```
 
-```bash
+```shell
 kubectl get svc -l <LABEL_NAME>=<LABEL_VALUE>
 ```
 
 Si queremos filtrar por cualquier otro campo del manifiesto de Kubernetes el listado de los servicios utilizaremos el flag `-field-selecto`:
 
-```bash
+```shell
 kubectl get service --field-selector <FIELD_NAME>=<FIELD_VALUE>
 ```
 
-```bash
+```shell
 kubectl get svc --field-selector <FIELD_NAME>=<FIELD_VALUE>
 ```
 
 Si se quiere observar las etiquetas en el listado utilizaremos el flag `--show-labels`:
 
-```bash
+```shell
 kubectl get service --show-labels
 ```
 
-```bash
+```shell
 kubectl get svc --show-labels
 ```
 
 Obtener los endpoints de un Service:
 
-```bash
+```shell
 kubectl get endpoints <SERVICE_NAME>
 ```
 
 Ver la información de un Service:
 
-```bash
+```shell
 kubectl describe service <SERVICE_NAME>
 ```
 
 Ver el manifiesto de un Service:
 
-```bash
+```shell
 kubectl get service <SERVICE_NAME> -o yaml
 ```
 
 Para eliminar el recurso:
 
-```bash
+```shell
 kubectl delete -f <YAML_FILE_PATH>
 ```

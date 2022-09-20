@@ -56,7 +56,7 @@ spec:
 
 Si nuestros Pods estan etiquetados podremos filtrarlos con el siguiente comando:
 
-````bash
+````shell
 kubectl get pods -l <LABEL_NAME>=<LABEL_VALUE>
 kubectl get pods -l <LABEL_NAME>=<LABEL_VALUE>,<LABEL_NAME>=<LABEL_VALUE>
 ```

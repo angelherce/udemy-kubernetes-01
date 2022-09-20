@@ -3,11 +3,11 @@
 # Video 27 - ¿Yaml? ¿Cómo obtengo el Yaml desde un Pod?
 
 ## Filtrado de un Pod en concreto del listado
-```bash
+```shell
 kubectl get pods <POD_NAME>
 ```
 
 ## Mostrar el `yaml` de la declaración del Pod
-````bash
+````shell
 kubectl get pods <POD_NAME> -o yaml
 ```

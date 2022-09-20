@@ -6,6 +6,6 @@
 
 Para ver la información de un Pod (Volúmentes, Eventos, Estado, etc) utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl describe <POD_NAME>
 ``` 

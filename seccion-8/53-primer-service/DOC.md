@@ -45,44 +45,44 @@ spec:
 
 Para crear este recurso utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Para listar los servicios utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl get service
 ```
 
-```bash
+```shell
 kubectl get svc
 ```
 
 Si se quiere observar las etiquetas en el listado utilizaremos el flag `--show-labels`:
 
-```bash
+```shell
 kubectl get service --show-labels
 ```
 
-```bash
+```shell
 kubectl get svc --show-labels
 ```
 
 Ver la información de un Service:
 
-```bash
+```shell
 kubectl describe service <SERVICE_NAME>
 ```
 
 Ver el manifiesto de un Service:
 
-```bash
+```shell
 kubectl get service <SERVICE_NAME> -o yaml
 ```
 
 Para eliminar el recurso:
 
-```bash
+```shell
 kubectl delete -f <YAML_FILE_PATH>
 ```

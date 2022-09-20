@@ -29,29 +29,29 @@ spec:
 
 Para crear este recurso utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Se pueden listar los ReplicaSet creados en el Clúster con el siguiente comando:
 
-```bash
+```shell
 kubectl get replicaset
 ```
 
-```bash
+```shell
 kubectl get rs
 ```
 
 Comprobamos que se han creado los 5 Pods en el Clúster. Estos Pods se encuentran ahora en propiedad del ReplicaSet.
 
-```bash
+```shell
 kubectl get pods -l <LABEL_NAME>=<LABEL_VALUE>
 ```
 
 Ahora si eliminamos un Pod, el ReplicaSet actuará levantando otro para mantener que siempre haya el mismo número de replicas de los Pods que se han configurado en el ReplicaSet.
 
-```bash
+```shell
 kubectl delete pod <POD_NAME>
 ```
 
@@ -63,6 +63,6 @@ Si editamos el fichero `YAML` del ReplicaSet y establecemos otro número de rép
 
 Ahora si volvemos a ejecutar el siguiente comando, podremos ver como el ReplicaSet se carga los Pods necesarios para que hayan el número de Pods que se ha establecido.
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```

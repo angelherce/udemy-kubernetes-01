@@ -3,21 +3,21 @@
 # Video 26 - Aprende a eliminar Pods
 
 ## Listar los recursos de la API de Kubernetes
-```bash
+```shell
 kubectl api-resources
 ```
 
 ## Utilizar los shortnames de los recursos de la API
 Veamos otra manera de mostrar los Pods en el clúster de Kubernetes:
-```bash
+```shell
 kubectl get pods
 ```
 
-```bash
+```shell
 kubectl get po
 ```
 
 ## Eliminar un Pod
-```bash
+```shell
 kubectl delete <POD_NAME>
 ```

@@ -4,7 +4,7 @@
 
 Localizamos la IP del Pod en el apartado `IP` de la respuesta del siguiente comando:
 
-```bash
+```shell
 kubectl describe pod <POD_NAME>
 ```
 
@@ -12,6 +12,6 @@ Ahora podremos ver el Pod a través de esta IP. Si no podemos verlo, es probable
 
 Podremos solucionar esto utilizando el siguiente comando:
 
-```bash
+```shell
 kubectl port-forward podtest <PORT_LOCALHOST>:<PORT_POD>
 ```

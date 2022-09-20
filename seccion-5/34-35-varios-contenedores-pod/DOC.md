@@ -23,25 +23,25 @@ spec:
 
 Para crear el Pod utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Si queremos acceder a los logs de los contenedores del Pod utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl logs <POD_NAME> -c <CONTAINER_NAME>
 ```
 
 Si queremos acceder a los contenedores del Pod utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl exec -it <POD_NAME> -c <CONTAINER_NAME> -- sh
 ```
 
 Obtener la IP del Pod a través del siguiente comando
 
-```bash
+```shell
 kubectl describe pod <POD_NAME> | grep IP
 ```
 
@@ -49,11 +49,11 @@ Si no tenemos visibilidad desde nuestra máquina al Pod a través de la IP de é
 
 Podremos solucionar esto utilizando el siguiente comando:
 
-```bash
+```shell
 kubectl port-forward <POD_NAME> <PORT_LOCALHOST>:<PORT_POD>
 ```
 
 Para eliminar el Pod utilizaremos el siguiente comando:
-```bash
+```shell
 kubectl delete -f <YAML_FILE_PATH>
 ```

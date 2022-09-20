@@ -4,6 +4,6 @@
 
 Para ver los logs de un contenedor de un Pod de Kubernetes utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl logs <POD_NAME> -f
 ```

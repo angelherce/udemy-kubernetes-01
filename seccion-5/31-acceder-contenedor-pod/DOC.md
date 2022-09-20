@@ -2,6 +2,6 @@
 
 # Video 31 - Kubectl exec - ¡Ingresa a los contenedores dentro de un Pod!
 
-```bash
+```shell
 kubectl exec -it <POD_NAME> -- <TERMINAL_LINUX>
 ```

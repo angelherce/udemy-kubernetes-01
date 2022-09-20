@@ -29,40 +29,40 @@ spec:
 
 Para crear este recurso utilizaremos el siguiente comando:
 
-```bash
+```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
 
 Se pueden listar los ReplicaSet creados en el Clúster con el siguiente comando:
 
-```bash
+```shell
 kubectl get replicaset
 ```
 
-```bash
+```shell
 kubectl get rs
 ```
 
 Para ver la información del ReplicaSet podemos utilizar el mismo comando que en los Pods.
 
-```bash
+```shell
 kubectl describe rs <REPLICASET_NAME>
 ```
 
 Podemos ver el manifiesto de un ReplicaSet utilizando el siguiente comando:
 
-```bash
+```shell
 kubectl get rs <REPLICASET_NAME> -o yaml
 ```
 
 Si vemos el manifiesto de uno de los Pods que creó el ReplicaSet, podremos ver en la sección de metadata el apartado referente a `ownerReferences`, en este apartado veremos la información del ReplicaSet que creamos.
 
-```bash
+```shell
 kubectl get pod <POD_NAME> -o yaml
 ```
 
 Si nos fijamos en el UID del ReplicaSet, podrémos comprobar que es el mismo que el del ReplicaSet que hemos creado. Podemos ver el UID de nuestro ReplicaSet con el siguiente comando:
 
-```bash
+```shell
 kubectl get rs <REPLICASET_NAME> -o yaml
 ```
