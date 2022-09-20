@@ -49,7 +49,7 @@ kubectl get deployment --show-labels
 Para observar el estado del deployment utilizaremos el siguiente comando:
 
 ```bash
-kubectl rollout status deployment deployment-test
+kubectl rollout status deployment <DEPLOYMENT_NAME>
 ```
 
 Ver la información de un Deployment:
