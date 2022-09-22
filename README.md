@@ -13,7 +13,7 @@
 - [x] **Sección 5:** _Explorando Pods - Domina los objetos más pequeños en Kubernetes_
 - [x] **Sección 6:** _ReplicaSets - Aprende a garantizar réplicas en tus Pods_
 - [x] **Sección 7:** _Deployments - ¡Aprende a hacer Rollouts & Roolbacks como un Pro!_
-- [ ] **Sección 8:** _Service & Endpoints - Kubernetes Service Discovery_
+- [x] **Sección 8:** _Service & Endpoints - Kubernetes Service Discovery_
 - [ ] **Sección 9:** _Golang, JavaSCript y Kubernetes - Aprende a construir aplicaciones reales_
 - [ ] **Sección 10:** _Namespaces & Context - Aprende a organizar y a aislar los recursos en tu cluster_  
 - [ ] **Sección 11:** _Limita la Ram y la CPU que pueden usar tus pods_  
