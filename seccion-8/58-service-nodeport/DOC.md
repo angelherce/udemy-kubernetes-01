@@ -2,6 +2,12 @@
 
 # Video 58 - Servicio de tipo NodePort
 
+> **NOTA:** _Si estas utilizando WSL y minikube, para poder acceder al servicio desde tu máquina local tendrémos que habilitar el servicio en minikube:_
+>
+> ```shell
+> minikube service <SERVICE_KUBERNETES_NAME>
+> ```
+
 El servicio de tipo `NodePort` hace un servicio accesible desde fuera el clúster.  
 
 Crearemos un fichero `YAML` especificando el Deployment y el Service que queremos crear.

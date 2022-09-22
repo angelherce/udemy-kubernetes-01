@@ -2,6 +2,12 @@
 
 # Video 55 - Pods & Endpoints
 
+> **NOTA:** _Si estas utilizando WSL y minikube, para poder acceder al servicio desde tu máquina local tendrémos que habilitar el servicio en minikube:_
+>
+> ```shell
+> minikube service <SERVICE_KUBERNETES_NAME>
+> ```
+
 Crearemos un fichero `YAML` especificando el Deployment y el Service que queremos crear.
 
 ```yaml
