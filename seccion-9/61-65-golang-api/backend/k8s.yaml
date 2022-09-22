@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: golang-app
+  labels:
+    app: golang-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: golang-app
+      app-type: backend
+  template:
+    metadata:
+      labels:
+        app: golang-app
+        app-type: backend
+    spec:
+      containers:
+        - name: backend
+          # Por defecto Kubernetes va a buscar la imágen en internet
+          imagePullPolicy: IfNotPresent
+          image: golang-app-server:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: golang-app
+  labels:
+    app: golang-app
+spec:
+  type: ClusterIP
+  selector:
+    app: golang-app
+    app-type: backend
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9090
