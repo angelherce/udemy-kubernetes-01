@@ -1,6 +1,6 @@
 > _**Sección 9:** Golang, JavaSCript y Kubernetes - Aprende a construir aplicaciones reales_
 
-# Video [61-66] - Golang: Empieza a escribir tu API
+# Video [61-69] - Golang: Empieza a escribir tu API
 
 [DOC:](https://pkg.go.dev/net/http) GOLANG - Package `net/http`
 [DOC:](https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go) Digitalocear - HTTP Server
@@ -44,6 +44,7 @@ func ServeHTTP( w http.ResponseWriter, r *http.Request) {
 
     w.WriteHeader( http.StatusOK )
     w.Header().Set("Content-Type", "application/json")
+    w.Header().Set("Access-Control-Allow-Origin", "*")
     w.Write(response)
 }
 
@@ -104,9 +105,8 @@ spec:
     spec:
       containers:
         - name: backend
-          # Por defecto Kubernetes va a buscar la imágen en internet (imagePullPolicy: Always)
           imagePullPolicy: IfNotPresent
-          image: golang-app-server
+          image: golang-app-server:v2
 ---
 apiVersion: v1
 kind: Service
@@ -115,7 +115,7 @@ metadata:
   labels:
     app: golang-app
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: golang-app
     app-type: backend
@@ -129,4 +129,44 @@ spec:
 
 ```shell
 minikube service <SERVICE_KUBERNETES_NAME>
+```
+
+## 2 - Frontend
+
+### 2.1 - Fichero HTML
+
+> **NOTA:** _El fetch no funciona por que el DNS al que intenta acceder sólo es visible desde el clúster, el cliente ejecuta este código desde su navegador y por eso no funciona._
+> **SOLUCIÓN:** _Cambiaremos el Service de nuestro backend a tipo `NodePort`_
+
+```html
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <title>Document</title>
+
+        <script>
+            window.addEventListener( "load", function(){
+                fetch( 'http://golang-app:80/' )
+                .then( response => response.json() )
+                .then( data => {
+                    document.querySelector( '.data span.hostname' ).innerHTML = data.hostname;
+                    document.querySelector( '.data span.time' ).innerHTML = data.time;
+                })
+                .catch( error => console.log( error ));
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>Frontend</h1>
+        <div class="data">
+            <p>Hotname: <span class="hostname"></span></p>
+            <p>Time: <span class="time"></span></p>
+        </div>
+    </body>
+</html>
 ```

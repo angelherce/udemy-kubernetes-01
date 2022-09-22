@@ -38,3 +38,24 @@ apk add -U curl
 
 curl 10.110.139.223:80
 curl golang-app:80
+
+kubectl run --rm -it podtest --image=nginx:alpine -- sh
+
+apk add -U curl nano
+
+# Reemplazamos el contenido del index.html de nginx por el nuestro
+nano /usr/share/nginx/html/index.html
+
+kubectl get pod podtest -o wide
+
+kubectl port-forward podtest 80:80
+
+docker build -t golang-app-server:v2 -f ./backend/Dockerfile ./backend
+
+minikube image load golang-app-server:v2
+
+kubectl apply -f ./backend/k8s.yaml
+
+kubectl get pods -l app=golang-app --watch
+
+kubectl port-forward podtest 80:80

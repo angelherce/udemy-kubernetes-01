@@ -20,7 +20,7 @@ spec:
         - name: backend
           # Por defecto Kubernetes va a buscar la imágen en internet
           imagePullPolicy: IfNotPresent
-          image: golang-app-server:latest
+          image: golang-app-server:v2
 ---
 apiVersion: v1
 kind: Service
@@ -29,7 +29,7 @@ metadata:
   labels:
     app: golang-app
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: golang-app
     app-type: backend

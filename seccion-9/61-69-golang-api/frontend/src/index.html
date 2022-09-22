@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+
+        <title>Document</title>
+
+        <script>
+            window.addEventListener( "load", function(){
+                fetch( 'http://192.168.49.2:31520' )
+                .then( response => response.json() )
+                .then( data => {
+                    document.querySelector( '.data span.hostname' ).innerHTML = data.hostname;
+                    document.querySelector( '.data span.time' ).innerHTML = data.time;
+                })
+                .catch( error => console.log( error ));
+            });
+        </script>
+    </head>
+
+    <body>
+        <h1>Frontend</h1>
+        <div class="data">
+            <p>Hotname: <span class="hostname"></span></p>
+            <p>Time: <span class="time"></span></p>
+        </div>
+    </body>
+</html>
