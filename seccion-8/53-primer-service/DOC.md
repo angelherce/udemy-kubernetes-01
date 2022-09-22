@@ -2,7 +2,7 @@
 
 # Video 53 - Crea tu primer servicio
 
-Crearemos un fichero `YAML` especificando el Deployment que queremos crear y un Service para sus Pods.
+Crearemos un fichero `YAML` especificando el Deployment y el Service que queremos crear y un Service para sus Pods.
 
 ```yaml
 apiVersion: apps/v1

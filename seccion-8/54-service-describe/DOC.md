@@ -2,7 +2,7 @@
 
 # Video 54 - Describe tu servicio y encuentra información útil
 
-Crearemos un fichero `YAML` especificando el Deployment que queremos crear.
+Crearemos un fichero `YAML` especificando el Deployment y el Service que queremos crear.
 
 ```yaml
 apiVersion: apps/v1
