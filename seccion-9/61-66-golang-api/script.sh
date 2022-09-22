@@ -31,3 +31,10 @@ kubectl get deployment golang-app
 kubectl get service golang-app
 
 minikube service golang-app
+
+kubectl run --rm -it podtest --image=nginx:alpine -- sh
+
+apk add -U curl
+
+curl 10.110.139.223:80
+curl golang-app:80
