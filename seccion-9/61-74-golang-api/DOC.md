@@ -1,6 +1,6 @@
 > _**Sección 9:** Golang, JavaSCript y Kubernetes - Aprende a construir aplicaciones reales_
 
-# Video [61-72] - Golang: Empieza a escribir tu API
+# Video [61-74] - Golang: Empieza a escribir tu API
 
 [DOC:](https://pkg.go.dev/net/http) GOLANG - Package `net/http`
 [DOC:](https://www.digitalocean.com/community/tutorials/how-to-make-an-http-server-in-go) Digitalocear - HTTP Server
@@ -73,7 +73,7 @@ ENTRYPOINT ["./app"]
 1. Primero debemos crear la nuestra imágen de Docker a partir del Dockerfile
 
 ```shell
-docker build -t <IMAGE_NAME> -f <DOCKERFILE_PATH> <CONTEXT_PATH>
+docker build -t <IMAGE_NAME>:<IMAGE_TAG> -f <DOCKERFILE_PATH> <CONTEXT_PATH>
 ```
 
 2. Si estamos utilizando minikube en WSL, cargaremos la imágen creada en minikube
@@ -128,10 +128,16 @@ spec:
       targetPort: 8080
 ```
 
-4. Si estas utilizando WSL y minikube, para poder acceder al servicio desde tu máquina local tendrémos que habilitar el servicio en minikube:
+4. Aplicamos el manifiesto de Kubernetes
 
 ```shell
-minikube service <SERVICE_KUBERNETES_NAME>
+kubectl apply -f <YAML_FILE_PATH>
+```
+
+5. Si estas utilizando WSL y minikube, para poder acceder al servicio desde tu máquina local tendrémos hacer un `port-forward` del servicio:
+
+```shell
+kubectl port-forward service/<SERVICE_NAME> <PORT_LOCAL>:<PORT_SERVICE>
 ```
 
 ## 2 - Frontend
@@ -153,7 +159,7 @@ minikube service <SERVICE_KUBERNETES_NAME>
 
         <script>
             window.addEventListener( "load", function(){
-                fetch( 'http://golang-app:80/' )
+                fetch( 'http://localhost:9090/' )
                 .then( response => response.json() )
                 .then( data => {
                     document.querySelector( '.data span.hostname' ).innerHTML = data.hostname;
@@ -187,7 +193,7 @@ COPY ./src ./
 1. Primero debemos crear la nuestra imágen de Docker a partir del Dockerfile
 
 ```shell
-docker build -t <IMAGE_NAME> -f <DOCKERFILE_PATH> <CONTEXT_PATH>
+docker build -t <IMAGE_NAME>:<IMAGE_TAG> -f <DOCKERFILE_PATH> <CONTEXT_PATH>
 ```
 
 2. Si estamos utilizando minikube en WSL, cargaremos la imágen creada en minikube
@@ -240,4 +246,16 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
+```
+
+4. Aplicamos el manifiesto de Kubernetes
+
+```shell
+kubectl apply -f <YAML_FILE_PATH>
+```
+
+5. Si estas utilizando WSL y minikube, para poder acceder al servicio desde tu máquina local tendrémos hacer un `port-forward` del servicio:
+
+```shell
+kubectl port-forward service/<SERVICE_NAME> <PORT_LOCAL>:<PORT_SERVICE>
 ```

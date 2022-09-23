@@ -9,7 +9,7 @@
 
         <script>
             window.addEventListener( "load", function(){
-                fetch( 'http://192.168.49.2:31520' )
+                fetch( 'http://localhost:9090/' )
                 .then( response => response.json() )
                 .then( data => {
                     document.querySelector( '.data span.hostname' ).innerHTML = data.hostname;

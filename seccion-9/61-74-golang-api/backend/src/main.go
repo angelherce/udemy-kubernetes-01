@@ -30,10 +30,11 @@ func ServeHTTP( w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    w.WriteHeader( http.StatusOK )
     w.Header().Set("Content-Type", "application/json")
     w.Header().Set("Access-Control-Allow-Origin", "*")
+    w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
     w.Write(response)
+    return
 }
 
 func main(){
