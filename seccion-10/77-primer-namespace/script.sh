@@ -14,3 +14,7 @@ kubectl apply -f ./k8s/namespace.yaml
 kubectl get namespace --show-labels
 
 kubectl get pods -n development
+
+kubectl delete -f ./k8s/namespace.yaml
+
+kubectl get namespace --show-labels

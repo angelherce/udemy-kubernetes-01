@@ -98,3 +98,9 @@ kubectl get ns <NAMESPACE_NAME> -o yaml
 ```shell
 kubectl apply -f <YAML_FILE_PATH>
 ```
+
+- Eliminar namespace desde un manifiesto
+
+```shell
+kubectl delete -f <YAML_FILE_PATH>
+```
