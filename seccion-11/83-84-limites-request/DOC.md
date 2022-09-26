@@ -1,6 +1,6 @@
 > _**Sección 11:** Limita la Ram y la CPU que pueden usar tus pods_
 
-# Video 83 - ¿Qué sucede si un pod supera el request pero no el límite en RAM?
+# Video [83-84] - ¿Qué sucede si un pod supera el request pero no el límite en RAM? ¿Qué sucede si un pod supera el límite de RAM?
 
 Cuando especificas un Pod, opcionalmente puedes especificar los recursos que necesita un Contenedor, si estos límites no se especifícan pueden generar problemas ya que los Pods podrían consumir el total de los recursos del clúster y tirarnos todo abajo.  
 
@@ -16,7 +16,7 @@ Cuando especificas el recurso request para Contenedores en un Pod, el Scheduler 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: memory-test
+  name: memory-test-mayorquerequest-menorquelimit
 spec:
   containers:
     - name: stress
@@ -28,4 +28,20 @@ spec:
           memory: '100Mi'
       command: ['stress']
       args: ['--vm', '1', '--vm-bytes', '150M', '--vm-hang', '1']
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: memory-test-mayorquelimit
+spec:
+  containers:
+    - name: stress
+      image: polinux/stress
+      resources:
+        limits:
+          memory: '200Mi'
+        requests:
+          memory: '100Mi'
+      command: ['stress']
+      args: ['--vm', '1', '--vm-bytes', '250M', '--vm-hang', '1']
 ```
