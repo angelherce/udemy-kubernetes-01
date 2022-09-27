@@ -55,17 +55,17 @@ kubectl apply -f <YAML_FILE_PATH>
 - Listar los LimitRanges
 
 ```shell
-kubectl get limitrange <LIMITRANGE_NAME>
+kubectl get limitrange
 ```
 
 - Listar los LimitRanges de un namespace en concreto
 
 ```shell
-kubectl get limitrange <LIMITRANGE_NAME> -namespace <NAMESPACE_NAME>
+kubectl get limitrange -namespace <NAMESPACE_NAME>
 ```
 
 ```shell
-kubectl get limitrange <LIMITRANGE_NAME> -n <NAMESPACE_NAME>
+kubectl get limitrange -n <NAMESPACE_NAME>
 ```
 
 - Ver el manifiesto de un LimitRange
