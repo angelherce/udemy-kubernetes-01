@@ -19,7 +19,7 @@
 - [x] **Sección 11:** _Limita la Ram y la CPU que pueden usar tus pods_  
 - [x] **Sección 12:** _LimitRange - Aprende a controlar el uso de recursos a nivel de objetos_  
 - [x] **Sección 13:** _ResourceQuota - Agrega límites a nivel de Namespace_  
-- [ ] **Sección 14:** _Health Checks & Probes - Vigila el estado de tus contenedores_  
+- [x] **Sección 14:** _Health Checks & Probes - Vigila el estado de tus contenedores_  
 - [ ] **Sección 15:** _ConfigMaps & Environment Variables - Inyecta datos en tus Pods_  
 - [ ] **Sección 16:** _Secrets - Aprende a manejar data sensible en Kubernetes_  
 - [ ] **Sección 17:** _Kubernetes Volumes - Entiende los conceptos detrás de la persistencia de datos_  
