@@ -18,7 +18,7 @@
 - [x] **Sección 10:** _Namespaces & Context - Aprende a organizar y a aislar los recursos en tu cluster_  
 - [x] **Sección 11:** _Limita la Ram y la CPU que pueden usar tus pods_  
 - [x] **Sección 12:** _LimitRange - Aprende a controlar el uso de recursos a nivel de objetos_  
-- [ ] **Sección 13:** _ResourceQuota - Agrega límites a nivel de Namespace_  
+- [x] **Sección 13:** _ResourceQuota - Agrega límites a nivel de Namespace_  
 - [ ] **Sección 14:** _Health Checks & Probes - Vigila el estado de tus contenedores_  
 - [ ] **Sección 15:** _ConfigMaps & Environment Variables - Inyecta datos en tus Pods_  
 - [ ] **Sección 16:** _Secrets - Aprende a manejar data sensible en Kubernetes_  
