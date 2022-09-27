@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest1
+  namespace: dev
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: cont1
+      image: nginx:alpine
+      resources:
+        limits:
+          memory: '500M'
+          cpu: '0.5'
+        requests:
+          memory: '400M'
+          cpu: '0.3'
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest2
+  namespace: dev
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: cont1
+      image: nginx:alpine
+      resources:
+        limits:
+          memory: '2Gi'
+          cpu: '2'
+        requests:
+          memory: '400M'
+          cpu: '0.3'
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: podtest3
+  namespace: dev
+  labels:
+    app: backend
+spec:
+  containers:
+    - name: cont1
+      image: nginx:alpine
+      resources:
+        limits:
+          memory: '50M'
+          cpu: '50m'
+        requests:
+          memory: '400M'
+          cpu: '0.3'
