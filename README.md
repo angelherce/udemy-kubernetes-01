@@ -17,7 +17,7 @@
 - [x] **Sección 9:** _Golang, JavaSCript y Kubernetes - Aprende a construir aplicaciones reales_
 - [x] **Sección 10:** _Namespaces & Context - Aprende a organizar y a aislar los recursos en tu cluster_  
 - [x] **Sección 11:** _Limita la Ram y la CPU que pueden usar tus pods_  
-- [ ] **Sección 12:** _LimitRange - Aprende a controlar el uso de recursos a nivel de objetos_  
+- [x] **Sección 12:** _LimitRange - Aprende a controlar el uso de recursos a nivel de objetos_  
 - [ ] **Sección 13:** _ResourceQuota - Agrega límites a nivel de Namespace_  
 - [ ] **Sección 14:** _Health Checks & Probes - Vigila el estado de tus contenedores_  
 - [ ] **Sección 15:** _ConfigMaps & Environment Variables - Inyecta datos en tus Pods_  
