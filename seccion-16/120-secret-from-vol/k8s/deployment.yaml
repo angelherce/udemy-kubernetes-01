@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          volumeMounts:
+            - name: vol-test
+              mountPath: /opt
+              readOnly: true
+      volumes:
+        - name: vol-test
+          secret:
+            secretName: my-secret
+            items:
+              - key: username
+                path: user.txt
+              - key: password
+                path: pass.txt
