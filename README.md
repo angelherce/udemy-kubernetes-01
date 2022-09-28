@@ -21,7 +21,7 @@
 - [x] **Sección 13:** _ResourceQuota - Agrega límites a nivel de Namespace_  
 - [x] **Sección 14:** _Health Checks & Probes - Vigila el estado de tus contenedores_  
 - [x] **Sección 15:** _ConfigMaps & Environment Variables - Inyecta datos en tus Pods_  
-- [ ] **Sección 16:** _Secrets - Aprende a manejar data sensible en Kubernetes_  
+- [x] **Sección 16:** _Secrets - Aprende a manejar data sensible en Kubernetes_  
 - [ ] **Sección 17:** _Kubernetes Volumes - Entiende los conceptos detrás de la persistencia de datos_  
 - [ ] **Sección 18:** _Kubernetes Volumes - Empty Dir, HostPath, PV, PVC, StorageClasses_  
 - [ ] **Sección 19:** _Role Based Access Control: Users & Groups_  
