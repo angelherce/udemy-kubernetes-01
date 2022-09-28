@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    type: local
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      type: local
+  template:
+    metadata:
+      labels:
+        type: local
+    spec:
+      containers:
+        - name: mysql
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: '123456'
+          volumeMounts:
+            - mountPath: '/var/lib/mysql'
+              name: mysql-volume
+      volumes:
+        - name: mysql-volume
+          persistentVolumeClaim:
+            claimName: pvc-volume
