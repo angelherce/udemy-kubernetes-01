@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-conf
+  labels:
+    app: backend
+data:
+  default.conf: |
+    server {
+        listen 8080;
+        server_name localhost;
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html index.htm;
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+            root /usr/share/nginx/html;
+        }
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: variables
+  labels:
+    app: backend
+data:
+  db.host: 'dev.host.local'
+  db.user: 'dev_user'
+  db.pass: '123456'
+  script: |
+    echo DB host es $DB_HOST, DB user es $DB_USER y DB pass es $DB_PASS > /usr/share/nginx/html/test.html

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-test
+  labels:
+    app: backend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          env:
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: variables
+                  key: db.host
+            - name: DB_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: variables
+                  key: db.user
+            - name: DB_PASS
+              valueFrom:
+                configMapKeyRef:
+                  name: variables
+                  key: db.pass
+          volumeMounts:
+            - name: vol-config
+              mountPath: /etc/nginx/conf.d
+            - name: vol-script
+              mountPath: /opt
+      volumes:
+        - name: vol-config
+          configMap:
+            name: nginx-conf
+        - name: vol-script
+          configMap:
+            name: variables
+            items:
+              - key: script
+                path: script.sh
