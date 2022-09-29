@@ -24,7 +24,7 @@ kubectl config current-context
 
 # Creamos un contenedor de docker para realizar la prueba de autenticación con nuestro certificado
 kubectl config view | grep server
-sudo docker run --rm -it -v $PWD:/test -w /test -v <FOLDER><CA_CRT_NAME>.crt:/ca.crt --network host alpine sh
+docker run --rm -it -v $PWD:/test -w /test -v <FOLDER><CA_CRT_NAME>.crt:/ca.crt --network host alpine sh
 apk add -U curl
 curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
 chmod +x ./kubectl
@@ -41,3 +41,11 @@ kubectl config view | grep -i current-context: -m 1
 
 # Comprobamos que tenemos RBAC habilitado
 kubectl cluster-info dump | grep -i authorization-mode
+
+# Creamos un contenedor de docker para configurar el usuario
+kubectl config view | grep server
+docker run -v $PWD:/test -w /test -v <FOLDER><CA_CRT_NAME>.crt:/ca.crt --network host minikube-user --name minikube-user alpine:latest
+apk add -U curl
+curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
