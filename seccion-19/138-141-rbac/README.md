@@ -1,6 +1,6 @@
 > _**Sección 19:** Role Based Access Control: Users & Groups_
 
-# Video [138-140] - Roles vs ClusterRoles
+# Video [138-141] - Roles vs ClusterRoles
 
 ## 1- _Teoría_
 
@@ -33,3 +33,23 @@ Un enlace de rol otorga los permisos definidos en un rol a un usuario o conjunto
 Un RoleBinding puede hacer referencia a cualquier rol en el mismo namespace. Alternativamente, un RoleBinding puede hacer referencia a un ClusterRole y vincular ese ClusterRole al namespace del RoleBinding. Si desea vincular un ClusterRole a todos los namespaces en su clúster, use un ClusterRoleBinding.
 
 [source](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#rolebinding-and-clusterrolebinding)
+
+### 1.3- _Users & Groups_
+
+Todos los clústeres de Kubernetes tienen dos categorías de usuarios: cuentas de servicio administradas por Kubernetes y usuarios normales.
+
+Se supone que un servicio independiente del clúster administra a los usuarios normales de las siguientes maneras:
+
+- Un administrador distribuyendo claves privadas.
+- Una tienda de usuarios como Keystone o Google Accounts.
+- Un archivo con una lista de nombres de usuario y contraseñas.
+- 
+En este sentido, Kubernetes no tiene objetos que representen cuentas de usuario normales. Los usuarios normales no se pueden agregar a un clúster a través de una llamada a la API.
+
+Aunque no se puede agregar un usuario normal a través de una llamada API, cualquier usuario que presente un certificado válido firmado por la autoridad de certificación (CA) del clúster se considera autenticado. En esta configuración, Kubernetes determina el nombre de usuario a partir del campo de nombre común en el `subject` del certificado (p. ej., "/CN=bob"). A partir de ahí, el subsistema de control de acceso basado en roles (RBAC) determinaría si el usuario está autorizado para realizar una operación específica en un recurso. Para obtener más detalles, consulte el tema de usuarios normales en la solicitud de certificado para obtener más detalles al respecto.
+
+Por el contrario, las cuentas de servicio son usuarios administrados por la API de Kubernetes. Están vinculados a namespaces específicos y son creados automáticamente por la API o manualmente a través de llamadas API. Las cuentas de servicio están vinculadas a un conjunto de credenciales almacenadas como `Secrets`, que se montan en pods, lo que permite que los procesos del clúster se comuniquen con la API de Kubernetes.
+
+Las solicitudes de API están vinculadas a un usuario normal o a una cuenta de servicio, o se tratan como solicitudes anónimas.
+
+[source](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#users-in-kubernetes)
