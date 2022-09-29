@@ -1,6 +1,6 @@
 > _**Sección 19:** Role Based Access Control: Users & Groups_
 
-# Video [142-143] - Crea certificados para un usuario en Kubernetes
+# Video [142-144] - Crea certificados para un usuario en Kubernetes
 
 ## 1- _Teoría_
 
@@ -162,3 +162,22 @@ kubectl config use-context <CONTEXT_NAME>
 > ```shell
 > kubectl config view | grep -i current-context: -m 1
 > ```
+
+### 2.2- _Habilitar RBAC en Minikube_
+
+1. Comprobamos si tenemos RBAC habilitado
+
+```shell
+kubectl cluster-info dump | grep -i authorization-mode
+```
+
+Si nos devuelve algo como esto, es que esta habilitado. Por lo contrario sigamos con el paso 2.
+```text
+"--authorization-mode=Node,RBAC",
+```
+
+2. Habilitamos RBAC en Minikube
+
+```shell
+minikube start --vm-driver=docker --extra-config=apiserver.authorization-mode=RBAC
+```

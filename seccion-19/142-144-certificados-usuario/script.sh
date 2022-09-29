@@ -38,3 +38,6 @@ kubectl config view | grep -i users: -A 5
 kubectl config set-context angelhs --cluster=minikube --user=angelhs
 kubectl config use-context angelhs
 kubectl config view | grep -i current-context: -m 1
+
+# Comprobamos que tenemos RBAC habilitado
+kubectl cluster-info dump | grep -i authorization-mode
