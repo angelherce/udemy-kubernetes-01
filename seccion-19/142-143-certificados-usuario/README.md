@@ -1,6 +1,6 @@
 > _**Sección 19:** Role Based Access Control: Users & Groups_
 
-# Video 142 - Crea certificados para un usuario en Kubernetes
+# Video [142-143] - Crea certificados para un usuario en Kubernetes
 
 ## 1- _Teoría_
 
@@ -91,3 +91,74 @@ sudo openssl x509 -req -in <FOLDER_PATH><CSR_NAME>.csr \
 openssl x509 -in <FOLDER_PATH><CRT_NAME> -noout -text | grep -i subject:
 openssl x509 -in <FOLDER_PATH><CRT_NAME> -noout -text | grep -i issuer:
 ```
+
+### 2.1- _Configurar el usuario en Kubernetes_
+
+> _**Para realizar la prueba vamos a configurar el usuario en un contenedor de docker:**_
+> 
+> 1. _Obtenemos el servidor de nuestro cluster_
+> ```shell
+> kubectl config view | grep server
+> ```
+> 
+> 2. _Levantamos el contenedor de alpine para configurar el usuario de Kubernetes_
+> ```shell
+>  docker run --rm -it -v $PWD:/test -w /test -v <FOLDER><CA_CERT_NAME>.crt:/ca.crt --network host alpine sh
+> ```
+> 
+> 3. _Instalamos Kubectl_
+> ```shell
+> apk add -U curl
+> 
+> curl -LO "https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl"
+> 
+> chmod +x ./kubectl
+> 
+> mv ./kubectl /usr/local/bin/kubectl
+> ```
+
+**_Para configurar el usuario en Kubernetes realizaremos los siguientes pasos:_**
+
+1. Configuramos el clúster
+
+```shell
+kubectl config set-cluster minikube --server=<CLUSTER_SERVER> --certificate-authority=<FOLDER><CA_CERT_NAME>.crt
+```
+
+> _Comprobamos la información del cluster:_
+> ```shell
+> kubectl config view | grep -i cluster: -A 2
+> ```
+
+2. Establecemos el certificado y la key del usuario
+
+```shell
+kubectl config set-credentials <USER_NAME> --client-certificate=<FOLDER><CRT_NAME>.crt --client-key=<FOLDER><KEY_NAME>.key
+```
+
+> _Comprobamos que se ha establecido el usuario:_
+> ```shell
+> kubectl config view | grep -i users: -A 5
+> ```
+
+3. Creamos el contexto para nuestro usuario
+
+```shell
+kubectl config set-context <CONTEXT_NAME> --cluster=<CLUSTER_NAME> --user=<USER_NAME>
+```
+
+> _Ver el nombre de nuestro cluser:_
+> ```shell
+> kubectl config view | grep -i cluster: -m 1 -A 10
+> ```
+
+4. Establecemos el nuevo contexto del usuario
+
+```shell
+kubectl config use-context <CONTEXT_NAME>
+```
+
+> _Comprobamos el contexto actual:_
+> ```shell
+> kubectl config view | grep -i current-context: -m 1
+> ```
