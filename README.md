@@ -24,7 +24,7 @@
 - [x] **Sección 16:** _Secrets - Aprende a manejar data sensible en Kubernetes_  
 - [x] **Sección 17:** _Kubernetes Volumes - Entiende los conceptos detrás de la persistencia de datos_  
 - [x] **Sección 18:** _Kubernetes Volumes - Empty Dir, HostPath, PV, PVC, StorageClasses_  
-- [ ] **Sección 19:** _Role Based Access Control: Users & Groups_  
+- [x] **Sección 19:** _Role Based Access Control: Users & Groups_  
 - [ ] **Sección 20:** _Role Based Access Control: Service Account_  
 - [ ] **Sección 21:** _Ingress: Aprende a exponer tus aplicaciones fuera del Clúster_  
 - [ ] **Sección 22:** _AWS EKS & Kubernetes: Introducción_  
