@@ -1,4 +1,6 @@
+kubectl apply -f ./k8s/rbac/role.yaml
 kubectl apply -f ./k8s/rbac/service-account.yaml
+kubectl apply -f ./k8s/rbac/role-binding.yaml
 kubectl apply -f ./k8s/deployment.yaml
 
 kubectl get svc
@@ -13,7 +15,11 @@ TOKEN=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token)
 echo $TOKEN
 curl -H "Authorization: Bearer ${TOKEN}" https://kubernetes/api/v1 --insecure
 curl -H "Authorization: Bearer ${TOKEN}" https://kubernetes/api/v1/namespaces/default/pods --insecure
+curl -H "Authorization: Bearer ${TOKEN}" https://kubernetes/api/v1/namespaces/default/deployments --insecure
+curl -H "Authorization: Bearer ${TOKEN}" https://kubernetes/api/v1/namespaces/default/replicasets --insecure
 exit
 
 kubectl delete -f ./k8s/deployment.yaml
+kubectl delete -f ./k8s/rbac/role-binding.yaml
 kubectl delete -f ./k8s/rbac/service-account.yaml
+kubectl delete -f ./k8s/rbac/role.yaml

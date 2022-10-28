@@ -1,6 +1,6 @@
 > _**Sección 20:** Role Based Access Control: Service Account_
 
-# Video 161 - Asigna un ServiceAccount a un Deployment
+# Video [161-163] - Asigna un ServiceAccount a un Deployment
 
 ## 1- _Teoría_
 
@@ -10,12 +10,45 @@ El ServiceAccount es usado en Kubernetes para proporcionar una identidad a los p
 
 ## 2- _YAML_
 
+Role
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: pod-reader
+  namespace: default
+rules:
+  - apiGroups: ['']
+    resources: ['pods']
+    verbs: ['get', 'list', 'watch']
+  - apiGroups: ['apps']
+      resources: ['deployments', 'replicasets']
+      verbs: ['get', 'list', 'watch']
+```
+---
 ServiceAccount
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: my-service-account
+```
+---
+Role
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: service-account-pod-reader
+  namespace: default
+subjects:
+  - kind: ServiceAccount
+    name: my-service-account
+    apiGroup: ''
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
 ```
 ---
 Deployment
