@@ -1,3 +1,5 @@
+minikube addons enable ingress
+
 kubectl apply -f ./k8s/nginx-controller.yaml
 kubectl apply -f ./k8s/service.yaml
 

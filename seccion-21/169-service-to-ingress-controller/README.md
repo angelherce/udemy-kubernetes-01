@@ -18,6 +18,10 @@ Ingress no expone puertos o protocolos arbitrarios. La exposición de servicios 
 
 ## 2- _YAML_
 
+> Para Minikube hay que lanzar este comando para habilitar el ingress controller de nginx.
+>
+> `minikube addons enable ingress`
+
 **nginx-controller**
 
 [https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml](https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml)
