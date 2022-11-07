@@ -3,9 +3,9 @@ kind: Ingress
 metadata:
   name: ingress-test
   annotations:
+    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-#  ingressClassName: ingress-svc
   rules:
     - http:
         paths:

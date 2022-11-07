@@ -10,7 +10,6 @@ sudo vi /etc/hosts
 # Añadimos 127.0.0.1 app.com ([ADDRESS DE INGRESS] [HOST DE INGRESS])
 :wq
 
-
 kubectl delete -f ./k8s/ingress-rules.yaml
 kubectl delete -f ./k8s/service.yaml
 kubectl delete -f ./k8s/deployment.yaml
