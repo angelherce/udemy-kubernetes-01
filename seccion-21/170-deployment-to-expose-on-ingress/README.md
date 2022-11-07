@@ -18,6 +18,11 @@ Ingress no expone puertos o protocolos arbitrarios. La exposición de servicios 
 
 ## 2- _YAML_
 
+**nginx-controller**
+
+[https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml](https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.4.0/deploy/static/provider/baremetal/deploy.yaml)
+
+
 **deployment**
 
 ```yaml
