@@ -26,7 +26,7 @@
 - [x] **Sección 18:** _Kubernetes Volumes - Empty Dir, HostPath, PV, PVC, StorageClasses_  
 - [x] **Sección 19:** _Role Based Access Control: Users & Groups_  
 - [x] **Sección 20:** _Role Based Access Control: Service Account_  
-- [ ] **Sección 21:** _Ingress: Aprende a exponer tus aplicaciones fuera del Clúster_  
+- [x] **Sección 21:** _Ingress: Aprende a exponer tus aplicaciones fuera del Clúster_  
 - [ ] **Sección 22:** _AWS EKS & Kubernetes: Introducción_  
 - [ ] **Sección 23:** _AWS EKS & Kubernetes: Crea un clúster real para ambientes productivos_  
 - [ ] **Sección 24:** _AWS EKS & Kubernetes: Ingress & Load Balancers_  
