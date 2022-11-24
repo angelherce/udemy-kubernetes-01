@@ -28,9 +28,9 @@
 - [x] **Sección 20:** _Role Based Access Control: Service Account_  
 - [x] **Sección 21:** _Ingress: Aprende a exponer tus aplicaciones fuera del Clúster_  
 - [x] **Sección 22:** _AWS EKS & Kubernetes: Introducción_  
-- [ ] **Sección 23:** _AWS EKS & Kubernetes: Crea un clúster real para ambientes productivos_  
-- [ ] **Sección 24:** _AWS EKS & Kubernetes: Ingress & Load Balancers_  
-- [ ] **Sección 25:** _AWS EKS & Kubernetes: Horizontal Pod Autoscaler_  
-- [ ] **Sección 26:** _AWS EKS & Kubernetes: Cluster AutoScaler_  
-- [ ] **Sección 27:** _AWS EKS & Kubernetes: Destruye todos los recursos que creaste_  
-- [ ] **Sección 28:** _Bonus_  
+- [x] **Sección 23:** _AWS EKS & Kubernetes: Crea un clúster real para ambientes productivos_  
+- [x] **Sección 24:** _AWS EKS & Kubernetes: Ingress & Load Balancers_  
+- [x] **Sección 25:** _AWS EKS & Kubernetes: Horizontal Pod Autoscaler_  
+- [x] **Sección 26:** _AWS EKS & Kubernetes: Cluster AutoScaler_  
+- [x] **Sección 27:** _AWS EKS & Kubernetes: Destruye todos los recursos que creaste_  
+- [x] **Sección 28:** _Bonus_  
